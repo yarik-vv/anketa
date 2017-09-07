@@ -49,6 +49,14 @@ module.exports = {
             presets: ['es2015']
           }
         }]
+      },
+      {
+        test: /\.scss$/,
+        include: __dirname + '/source',
+        use: ExtractTextPlugin.extract({
+          fallback: 'style',
+          use: ['css', 'postcss', 'sass']
+        })
       }
     ]
   },
