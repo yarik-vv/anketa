@@ -5,29 +5,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Тестовое задание “Анкета”</title>
+  <title>{{title}}</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=cyrillic" rel="stylesheet">
 </head>
 <body>
-
-  <header>
+<div class="content">
+  <!-- <header> -->
     <div class="pagination">
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
+      <a href="/" id="step1">1</a>
+      <a href="/step-2">2</a>
+      <a href="/step-3">3</a>
+      <a href="/step-4">4</a>
     </div>
-  </header>
+  <!-- </header> -->
 
-  <h1>1. Введите шото там</h1>
-
-  <ui-view></ui-view>
-
-  <footer>
+  <h1>{{stepName}}</h1>
+<form name="user">
+  <ui-view class="view"></ui-view>
+</form>
+  <!-- <footer> -->
     <nav>
-
+      <a href="{{prevPage}}" val><span class="prev"></span>Предыдущий</a>
+      <div ng-click=" " val>Следующий<span class="next"></span></div>
     </nav>
+    <!-- <button type="submit" style="display:none">11111</button> -->
+    <!-- <button>111111</button> -->
   </footer>
-  
+<!-- </form> -->
+</form>
+</div>
 </body>
 </html>

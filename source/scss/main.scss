@@ -6,33 +6,68 @@
 
 a {
   text-decoration: none;
-
-  // &:hover {
-  //   cursor: pointer;
-  // }
 }
 
-// button {
-//   background: none;
-//   border: none;
-
-//   &:hover {
-//     cursor: pointer;
-//   }
-// }
-
-// h3,
-// h4 {
-//   font-weight: normal;
-// }
-
-// ul {
-//   list-style-type: none;
-// }
-
 body {
-  @include flex(column, center, center);
+  @include flex(row, center, center);
 
+  background: $background;
+  width: 100vw;
+  height: 100vh;
   font-family: $font;
   color: #333333;
+}
+
+input,
+select {
+  width: 100%;
+  border: none;
+  padding-left: 15px;
+  font-family: $font;
+  font-size: 15px;
+  box-shadow: $shadow;
+  background: white;
+}
+
+input {
+  border: none;
+  outline: 0;
+
+  &::-webkit-input-placeholder {
+    color: $gray-color;
+  }
+  &::-moz-placeholder {
+    color: $gray-color;
+  }
+  &:-moz-placeholder {
+    color: $gray-color;
+  }
+  &:-ms-input-placeholder {
+    color: $gray-color;
+  }
+}
+
+.content {
+  @include flex(column);
+
+  position: relative;
+  top: -50px;
+  max-width: 310px;
+  width: 100%;
+  overflow: visible;
+
+  h1 {
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 16px;
+  }
+
+  .view {
+    @include flex(column);
+    width: 100%;
+  }
+}
+
+.invalid {
+  border: 1px solid $error-color;
 }
