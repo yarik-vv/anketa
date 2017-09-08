@@ -1,0 +1,36 @@
+.input-group {
+  @include flex(row, flex-start, center);
+  overflow: visible;
+  width: 250%;
+
+  p {
+    margin-left: 10px;
+    color: $error-color;
+  }
+
+  &:first-child {
+    margin-top: 42px;
+
+    // input {
+    //   border: 1px solid $error-color;
+    // }
+  }
+
+  &:last-child {
+    margin: 16px 0 151px 0;
+
+    // input {
+    //   border: 1px solid $error-color;
+    // }
+  }
+
+  select {
+    color: $gray-color;
+  }
+
+  input,
+  select {
+    height: 52px;
+    max-width: 310px;
+  }
+}

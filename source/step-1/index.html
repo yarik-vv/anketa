@@ -1,0 +1,10 @@
+<div class="input-group">
+  <input type="text" name="name" value="1111" ng-model="stepOne.name" ng-class="{ invalid: user.name.$dirty && user.name.$invalid }" placeholder="Имя" pattern="^[а-яА-ЯёЁa-zA-Z]{3,20}$" required>
+  <p ng-show="user.name.$invalid && user.name.$dirty">&#8212; поле дожно содержать только текст</p>
+</div>
+<div class="input-group">
+  <input type="email" ng-class="{ invalid: user.email.$dirty && user.email.$invalid }" name="email" ng-model="stepOne.email" placeholder="E-mail" required>
+  <p ng-show="user.email.$dirty && user.email.$invalid">&#8212; в адресе должен быть символ &#171;@&#187;</p>
+</div>
+<!-- <button ng-click="stepOne.save()">Change</button> -->
+<!-- <button ng-click="StepOne.save()">111111</button> -->
