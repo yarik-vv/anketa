@@ -11,7 +11,7 @@ module.exports = {
   context: __dirname + '/source',
 
   entry: {
-    build: './build'
+    app: './app'
   },
 
   output: {
@@ -49,6 +49,13 @@ module.exports = {
             presets: ['es2015']
           }
         }]
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+        options: {
+          minimize: false
+        }
       },
       {
         test: /\.scss$/,

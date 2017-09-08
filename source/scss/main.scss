@@ -31,7 +31,7 @@ a {
 // }
 
 body {
-  @include flex(row, center, center);
+  @include flex(column, center, center);
 
   font-family: $font;
   color: #333333;
