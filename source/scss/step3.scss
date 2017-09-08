@@ -1,0 +1,35 @@
+.social {
+  @include flex(row, flex-start, stretch);
+  width: 220%;
+
+  .left,
+  .right {
+    @include flex(column, space-around);
+    margin: 40px 0 65px 0;
+  }
+
+  .checkbox-group {
+    @include flex(row, flex-start, center);
+
+    input {
+      &[type='checkbox'] {
+        width: auto;
+        height: auto;
+        margin-right: 7px;
+      }
+
+      &[type='text'] {
+        max-width: 250px;
+        height: 36px;
+        margin: 8px;
+        position: relative;
+        left: 10px;
+      }
+    }
+
+    p {
+      margin-left: 10px;
+      color: $error-color;
+    }
+  }
+}
