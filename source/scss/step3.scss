@@ -6,10 +6,17 @@
   .right {
     @include flex(column, space-around);
     margin: 40px 0 65px 0;
+    height: 208px;
+  }
+  .right{
+    width: 100%;
   }
 
   .checkbox-group {
     @include flex(row, flex-start, center);
+    height: 52px;
+    width: 100%;
+    //border: 1px solid black;
 
     input {
       &[type='checkbox'] {
@@ -30,6 +37,7 @@
     p {
       margin-left: 10px;
       color: $error-color;
+      display: none;
     }
   }
 }
