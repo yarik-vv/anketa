@@ -1,0 +1,23 @@
+.complete {
+  @include flex(row, space-between);
+  width: 200%;
+  margin-left: -50%;
+  padding: 24px;
+  background: white;
+  box-shadow: $shadow;
+  margin-bottom: 32px;
+
+  img {
+    height: 195px;
+    width: 200px;
+    margin-left: 53px;
+  }
+  
+  .info {
+    @include flex(column, space-between);
+
+    h1 {
+      margin: 0;
+    }
+  }
+}
