@@ -64,6 +64,11 @@ module.exports = {
           fallback: 'style',
           use: ['css', 'postcss', 'sass']
         })
+      },
+      {
+        test: /\.(json|png|jpg|otf|ttf|eot|woff|woff2|svg)$/,
+        exclude: /(node_modules)/,
+        loader: 'file-loader?name=[path][name].[ext]'
       }
     ]
   },
