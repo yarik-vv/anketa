@@ -1,14 +1,16 @@
 <div class="input-group">
-  <select required ng-model="user.country">
-    <option value="" disabled selected>Страна</option>
-    <option>Страна1</option>
-    <option>Страна2</option>
+  <select required ng-model="user.country" ng-options="country as country for country in stepTwo.countries">
+    <option value="" disabled>Страна</option>
+    <!-- <option ng-repeat="city in stepTwo.cities">{{city.name}}</option> -->
   </select>
 </div>
 <div class="input-group">
   <select required ng-model="user.city">
-    <option value="" disabled selected>Город</option>
-    <option>Город1</option>
-    <option>Город2</option>
+    <option value="" disabled>Город</option>
+    <option ng-repeat="city in stepTwo.cities">{{city.name}}</option>
   </select>
 </div>
+<!-- {{stepTwo.cities[+'2']}}
+{{stepTwo.countries[2]}} -->
+<!-- ng-options="city as city.name for city in stepTwo.cities" -->
+<!-- ng-options="country as country for country in stepTwo.countries" -->
