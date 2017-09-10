@@ -1,14 +1,14 @@
+const nextBtn = document.getElementById('next');
+
+//модуль для валидации
 function validate(regexp, text, element, message){
   let reg = new RegExp(regexp);
   
   if(text !== undefined){
     if(reg.test(text)){
-      console.log('valid');
-      element.style.border = 'none';
-      message.style.display = 'none';
+      reset(element, message);
       return true;
     } else {
-      console.log('invalid');
       element.style.border = '1px solid #ff0000';
       message.style.display = 'flex';
       return false;
@@ -16,6 +16,7 @@ function validate(regexp, text, element, message){
   }
 }
 
+//сброс подсказок валидации
 function reset(input, message){
   input.style.border = 'none';
   message.style.display = 'none';
