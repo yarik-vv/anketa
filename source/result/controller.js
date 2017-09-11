@@ -12,7 +12,11 @@ class ResultController {
     avatar.style.backgroundSize = 'cover';
 
     this.reset = () => {
-      //
+      $scope.user = {};
+      navigation.style.display = 'flex';
+      pagination.style.display = 'flex';
+      $scope.page1 = $scope.page2 = false;
+      $scope.page3 = $scope.page4 = false;
     }
   }
 }
