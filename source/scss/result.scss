@@ -1,23 +1,44 @@
 .complete {
-  @include flex(row, space-between);
+  @include flex(row, space-between, stretch);
   width: 200%;
   margin-left: -50%;
   padding: 24px;
   background: white;
   box-shadow: $shadow;
+  font-size: 15px;
   margin-bottom: 32px;
-
-  img {
-    height: 195px;
-    width: 200px;
-    margin-left: 53px;
-  }
   
   .info {
-    @include flex(column, space-between);
+    //height: 100%;
+    @include flex(column, space-between, space-between);
+
+    color: #666666;
 
     h1 {
+      color: #333333;
+      font-size: 20px;
       margin: 0;
     }
+    span{
+      margin-right: 5px;
+      color: #2c49cb;
+    }
   }
+}
+
+#avatar {
+  height: 195px;
+  width: 200px;
+  margin-left: 53px;
+}
+
+.reset{
+  @include flex(row, center, center);
+
+  align-self: center;
+  font-weight: bold;
+  width: 50%;
+  height: 35px;
+  background: $orange-color;
+  color: white;;
 }
