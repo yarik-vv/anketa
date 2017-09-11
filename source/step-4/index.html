@@ -1,9 +1,9 @@
 <div class="step-4">
   <div class="images">
-    <div ng-click="fourStep.select('cat')"></div>
-    <div ng-click="fourStep.select('cat')"></div>
-    <div ng-click="fourStep.select('cat')"></div>
-    <div ng-click="fourStep.select('dog')" class="dog"></div>
+    <div ng-click="fourStep.select('cat', '../images/cat1.jpg', $event)"></div>
+    <div ng-click="fourStep.select('cat', '../images/cat2.jpg', $event)"></div>
+    <div ng-click="fourStep.select('cat', '../images/cat3.jpg', $event)"></div>
+    <div ng-click="fourStep.select('dog', '../images/dog4.jpg', $event)"></div>
   </div>
   <p>{{fourStep.error}}</p>
 </div>

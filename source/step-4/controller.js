@@ -16,24 +16,25 @@ class FourStepController {
     $scope.prevPage = '/step-3';
 
     initPagination($scope.page1, $scope.page2, $scope.page3, $scope.page4, 4);
+    setState($scope.page4, resultBtn);
     buttonState('none', 'flex');
     ///setState($scope.page4);
     nextBtn.style.display = 'none';
     resultBtn.style.display = 'flex';
 
-    this.select = (text) => {
+    this.select = (text, imageUrl, event) => {
       this.error = null;
       active(event.target);
 
       if(text === 'cat'){
-        $scope.avatar = event.target.src;
+        $scope.user.avatar = imageUrl;
         $scope.page4 = true;
         //$scope.nextPage = '/result';
-        setState(true); 
+        setState(true, resultBtn); 
       } else {
         //$scope.nextPage = null;
         $scope.page4 = false;
-        setState(false); 
+        setState(false, resultBtn); 
         this.error = 'Вы выбрали собачку. А надо котика.';
       }
     };
