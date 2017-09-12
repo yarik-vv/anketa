@@ -1,8 +1,8 @@
 const inputs = document.getElementsByTagName('input');
 const errors = document.getElementsByTagName('p');
 
-import { validate, reset } from '../validation';
-import { initPagination, setState, buttonState } from '../pagination';
+import { validate, reset } from '../../validation';
+import { initPagination, setState, buttonState } from '../../pagination';
 
 class StepThreeController {
   constructor($scope) {

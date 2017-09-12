@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  border-radius: 2px;
 }
 
 a {
@@ -59,12 +60,13 @@ form{
   top: -50px;
   max-width: 310px;
   width: 100%;
-  overflow: visible;
+  //overflow: visible;
 
   h1 {
     font-size: 15px;
     font-weight: normal;
     margin-top: 16px;
+    //align-self: center;
   }
 
   .view {

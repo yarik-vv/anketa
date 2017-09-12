@@ -24,6 +24,6 @@ class loadData {
   }
 }
 
-export default angular
-  .module('services.load-data', [])
-  .service('loadData', loadData).name;
+export default angular.module('services.load-data', [])
+  .service('loadData', loadData)
+  .name;

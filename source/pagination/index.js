@@ -26,9 +26,7 @@ function setState(state, element) {
     element = document.getElementById('next');
   }
   element.onclick = event => {
-    console.log(state);
     if (state === undefined) {
-      console.log('da');
       state = false;
     }
     return state;

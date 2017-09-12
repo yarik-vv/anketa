@@ -1,6 +1,7 @@
 .social {
   @include flex(row, flex-start, stretch);
-  width: 220%;
+  width: 200%;
+  //width: 100%;
 
   .left,
   .right {
@@ -26,7 +27,7 @@
       }
 
       &[type='text'] {
-        max-width: 250px;
+        max-width: 200px;
         height: 36px;
         margin: 8px;
         position: relative;
@@ -35,6 +36,7 @@
     }
 
     p {
+      width: 253px;
       margin-left: 10px;
       color: $error-color;
       display: none;

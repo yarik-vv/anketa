@@ -3,8 +3,8 @@ const resultBtn = document.getElementById('result');
 // nextBtn.style.display = 'none';
 // resultBtn.style.display = 'flex';
 
-import { validate, reset } from '../validation';
-import { initPagination, setState, buttonState } from '../pagination';
+import { validate, reset } from '../../validation';
+import { initPagination, setState, buttonState } from '../../pagination';
 
 class FourStepController {
   constructor($scope) {

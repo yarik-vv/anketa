@@ -11,6 +11,7 @@
 
 <body>
   <div class="content">
+    <!-- pagination -->
     <div id="pagination">
       <a href="/">1</a>
       <a href="/step-2">2</a>
@@ -18,12 +19,15 @@
       <a href="/step-4">4</a>
     </div>
 
+    <!-- current step name -->
     <h1>{{stepName}}</h1>
 
+    <!-- view -->
     <form name="user">
       <ui-view class="view"></ui-view>
     </form>
 
+    <!-- navigation -->
     <nav init-button-state>
       <a href="{{prevPage}}"><span class="prev"></span>Предыдущий</a>
       <a href="{{nextPage}}" id="next">Следующий<span class="next"></span></a>

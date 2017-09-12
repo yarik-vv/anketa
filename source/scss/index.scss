@@ -1,14 +1,15 @@
 //scss
-@import 'variables.scss';
-@import 'mixins.scss';
+@import 'variables';
+@import 'mixins';
 
 //main files
-@import 'main.scss';
+@import 'main';
 
 //others styles
-@import 'pagination.scss';
-@import 'navigation.scss';
-@import 'step1-2.scss';
-@import 'step3.scss';
-@import 'step4.scss';
+@import 'pagination';
+@import 'navigation';
+@import 'step1-2';
+@import 'step3';
+@import 'step4';
 @import 'result';
+@import 'mobile';

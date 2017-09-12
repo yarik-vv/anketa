@@ -1,4 +1,6 @@
 .step-4 {
+  @include flex(column);
+
   margin: 50px 0 75px 0;
   max-width: 664px;
   width: 220%;

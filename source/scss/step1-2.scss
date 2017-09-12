@@ -1,12 +1,22 @@
 .input-group {
   @include flex(row, flex-start, center);
   overflow: visible;
-  width: 250%;
+  width: 199%;
+  //border: 1px solid black;
+  //position: relative;
+  //overflow: visible;
 
   p {
     margin-left: 10px;
     color: $error-color;
-    display: none;
+    //display: none;
+    //position: absolute;
+    //left: 100%;
+    width: 300px;
+    //border: 1px solid black;
+  }
+  input{
+    //width: 100%;
   }
 
   &:first-child {

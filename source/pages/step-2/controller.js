@@ -1,9 +1,9 @@
 const selects = document.getElementsByTagName('select');
-const countriesUrl = '../data/countries.json';
-const citiesUrl = '../data/cities.json';
+const countriesUrl = '../../data/countries.json';
+const citiesUrl = '../../data/cities.json';
 
-import { validate, reset } from '../validation';
-import { initPagination, setState, buttonState } from '../pagination';
+import { validate, reset } from '../../validation';
+import { initPagination, setState, buttonState } from '../../pagination';
 
 class StepTwoController {
   constructor($scope, loadData) {
@@ -28,18 +28,54 @@ class StepTwoController {
     loadData.request('GET', citiesUrl).then(
       result => {
         this.cities = result;
+        //citiess = result;
       },
       error => {
         console.log(error);
       }
     );
 
+    // let newCities = [];
+    // let c = 1;
+    // this.kek = (country) => {
+    //   for(name in this.countries){
+    //     if('Ukraine' === this.countries[name]){
+    //       for(let i in this.cities){
+    //         if(c === this.cities[i].country){
+    //           newCities.push(this.cities[i]);
+    //         }
+    //       }
+    //     }
+    //     c++;
+    //   }
+    // }
+
+    //var citiess= null;
+
+
+
     const countrySelect = selects[0];
     const citySelect = selects[1];
     let countryValid = false;
     let cityValid = false;
 
-    $scope.$watch('user.country', () => {
+    $scope.$watch('user.country', (text) => {
+
+        $scope.cities = [];
+        let n = 1;
+        for(name in this.countries){
+          if(text === this.countries[name]){
+            for(let i in this.cities){
+              if(n === this.cities[i].country){
+                $scope.cities.push(this.cities[i]);
+              }
+            }
+          }
+          n++;
+        }
+
+
+
       if (check('ng-empty', countrySelect.className)) {
         citySelect.style.border = '1px solid #ff0000';
         countryValid = true;
