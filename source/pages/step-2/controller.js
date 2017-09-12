@@ -7,15 +7,16 @@ import { initPagination, setState, buttonState } from '../../pagination';
 
 class StepTwoController {
   constructor($scope, loadData) {
+    //иницилизация основного
     $scope.prevPage = '/step-1';
     $scope.nextPage = '/step-3';
     $scope.title = 'Второй шаг анкеты';
     $scope.stepName = '2. Выберите страну и город';
 
     initPagination($scope.page1, $scope.page2, $scope.page3, $scope.page4, 2);
-    //buttonState('flex', 'none');
     setState($scope.page2);
 
+    //получение данных про страны и города с помощью сервиса
     loadData.request('GET', countriesUrl).then(
       result => {
         this.countries = result;
@@ -28,73 +29,46 @@ class StepTwoController {
     loadData.request('GET', citiesUrl).then(
       result => {
         this.cities = result;
-        //citiess = result;
       },
       error => {
         console.log(error);
       }
     );
 
-    // let newCities = [];
-    // let c = 1;
-    // this.kek = (country) => {
-    //   for(name in this.countries){
-    //     if('Ukraine' === this.countries[name]){
-    //       for(let i in this.cities){
-    //         if(c === this.cities[i].country){
-    //           newCities.push(this.cities[i]);
-    //         }
-    //       }
-    //     }
-    //     c++;
-    //   }
-    // }
-
-    //var citiess= null;
-
-
-
     const countrySelect = selects[0];
     const citySelect = selects[1];
     let countryValid = false;
-    let cityValid = false;
 
-    $scope.$watch('user.country', (text) => {
+    //вешаем вотчер на селект выбора страны
+    $scope.$watch('user.country', text => {
+      if (text !== undefined) {
+        countryValid = true;
+        $scope.page2 = true;
+      } else {
+        $scope.page2 = false;
+        setState(false);
+      }
 
-        $scope.cities = [];
-        let n = 1;
-        for(name in this.countries){
-          if(text === this.countries[name]){
-            for(let i in this.cities){
-              if(n === this.cities[i].country){
-                $scope.cities.push(this.cities[i]);
-              }
+      let n = 1;
+      let tempCities = [];
+
+      //загружаем города в завистимости от выбраной страны
+      for (name in this.countries) {
+        if (text === this.countries[name]) {
+          for (let i in this.cities) {
+            if (n === this.cities[i].country) {
+              tempCities.push(this.cities[i]);
             }
           }
-          n++;
         }
-
-
-
-      if (check('ng-empty', countrySelect.className)) {
-        citySelect.style.border = '1px solid #ff0000';
-        countryValid = true;
-
-        if (cityValid) {
-          $scope.page2 = true;
-          setState(true);
-        } else {
-          $scope.page2 = false;
-          setState(false);
-        }
+        $scope.cities = tempCities;
+        n++;
       }
     }, true);
 
-    $scope.$watch('user.city', () => {
-      if (check('ng-empty', citySelect.className)) {
-        citySelect.style.border = 'none';
-        cityValid = true;
-
+    //вешаем вотчер на селект выбора города
+    $scope.$watch('user.city', text => {
+      if (text !== undefined) {
         if (countryValid) {
           $scope.page2 = true;
           setState(true);
@@ -102,17 +76,11 @@ class StepTwoController {
           $scope.page2 = false;
           setState(false);
         }
+      } else {
+        $scope.page2 = false;
+        setState(false);
       }
     }, true);
-
-    function check(regexp, text, element) {
-      let reg = new RegExp(regexp);
-      if (reg.test(text)) {
-        return true;
-      } else {
-        return false;
-      }
-    }
   }
 }
 
