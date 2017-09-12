@@ -4,7 +4,7 @@ export default function routes($stateProvider) {
   $stateProvider
     .state('stepThree', {
       url: '/step-3',
-      template: require('./index.html'),
+      template: require('./template.html'),
       controller: 'StepThreeController',
       controllerAs: 'stepThree'
     });

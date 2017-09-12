@@ -7,11 +7,9 @@
   box-shadow: $shadow;
   font-size: 15px;
   margin-bottom: 32px;
-  
-  .info {
-    //height: 100%;
-    @include flex(column, space-between, space-between);
 
+  .info {
+    @include flex(column, space-between, space-between);
     color: #666666;
 
     h1 {
@@ -19,7 +17,7 @@
       font-size: 20px;
       margin: 0;
     }
-    span{
+    span {
       margin-right: 5px;
       color: #2c49cb;
     }
@@ -32,13 +30,12 @@
   margin-left: 53px;
 }
 
-.reset{
+.reset {
   @include flex(row, center, center);
-
   align-self: center;
   font-weight: bold;
   width: 50%;
   height: 35px;
   background: $orange-color;
-  color: white;;
+  color: white;
 }

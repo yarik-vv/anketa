@@ -1,11 +1,9 @@
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
-
 import routing from './routes';
-import FourStepController from './controller';
-import val from '../../directive.js';
+import StepFourController from './controller';
 
-export default angular.module('app.fourStep', [uirouter, val])
+export default angular.module('app.stepFour', [uirouter])
   .config(routing)
-  .controller('FourStepController', FourStepController)
+  .controller('StepFourController', StepFourController)
   .name;

@@ -11,7 +11,6 @@ a {
 
 body {
   @include flex(row, center, center);
-
   background: $background;
   width: 100vw;
   height: 100vh;
@@ -48,25 +47,22 @@ input {
   }
 }
 
-form{
+form {
   max-width: 310px;
   width: 100%;
 }
 
 .content {
   @include flex(column);
-
   position: relative;
   top: -50px;
   max-width: 310px;
   width: 100%;
-  //overflow: visible;
 
   h1 {
     font-size: 15px;
     font-weight: normal;
     margin-top: 16px;
-    //align-self: center;
   }
 
   .view {

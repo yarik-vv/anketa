@@ -6,6 +6,7 @@ import { initPagination, setState, buttonState } from '../../pagination';
 
 class stepOneController {
   constructor($scope) {
+    //инициилизация основного
     $scope.prevPage = null;
     $scope.nextPage = '/step-2';
     $scope.title = 'Первый шаг анкеты';
@@ -17,6 +18,7 @@ class stepOneController {
     let emailValid = false;
     let nameValid = false;
 
+    //вешаем вотчер на инпут ввода имени
     $scope.$watch('user.name', text => {
       const nameInput = inputs[0];
       const nameError = errors[0];
@@ -38,39 +40,27 @@ class stepOneController {
       }
     }, true);
 
-    $scope.$watch(
-      'user.email',
-      text => {
-        const emailInput = inputs[1];
-        const emailError = errors[1];
+    //вешаем вотчер на инпут ввода email
+    $scope.$watch('user.email', text => {
+      const emailInput = inputs[1];
+      const emailError = errors[1];
 
-        if (emailInput.value.length !== 0) {
-          if (
-            validate(
-              '^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$',
-              text,
-              emailInput,
-              emailError
-            )
-          ) {
-            emailValid = true;
-            if (nameValid) {
-              //$scope.nextPage = '/step-2';
-              setState(true);
-              $scope.page1 = true;
-            }
-          } else {
-            emailValid = false;
-            //$scope.nextPage = null;
-            $scope.page1 = false;
-            setState(false);
+      if (emailInput.value.length !== 0) {
+        if (validate('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$', text, emailInput, emailError)) {
+          emailValid = true;
+          if (nameValid) {
+            setState(true);
+            $scope.page1 = true;
           }
         } else {
-          reset(emailInput, emailError);
+          emailValid = false;
+          $scope.page1 = false;
+          setState(false);
         }
-      },
-      true
-    );
+      } else {
+        reset(emailInput, emailError);
+      }
+    }, true);
   }
 }
 

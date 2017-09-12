@@ -1,6 +1,8 @@
 const pagination = document.getElementById('pagination').childNodes;
 const resultBtn = document.getElementById('result');
 const nextBtn = document.getElementById('next');
+
+//основные цвета
 const enableColor = '#ff9800';
 const selectColor = '#333333';
 const disableColor = '#bbbbbb';

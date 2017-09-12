@@ -4,13 +4,19 @@ const ava = document.getElementById('avatar');
 
 class ResultController {
   constructor($scope) {
+    //инициилизация осноного
     $scope.title = 'Ваш результат';
     $scope.stepName = '';
+
+    //убираем пагинацию и навигацию
     navigation.style.display = 'none';
     pagination.style.display = 'none';
+
+    //иницилизация выбраного аватара
     avatar.style.background = 'url(' + $scope.user.avatar + ') center';
     avatar.style.backgroundSize = 'cover';
 
+    //кнопка ресета приложения
     this.reset = () => {
       $scope.user = {};
       navigation.style.display = 'flex';

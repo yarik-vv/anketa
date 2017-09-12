@@ -1,56 +1,51 @@
-const nextBtn = document.getElementById('next');
 const resultBtn = document.getElementById('result');
-// nextBtn.style.display = 'none';
-// resultBtn.style.display = 'flex';
 
 import { validate, reset } from '../../validation';
 import { initPagination, setState, buttonState } from '../../pagination';
 
-class FourStepController {
+class StepFourController {
   constructor($scope) {
+    //инициализация
+    $scope.page4 = false;
     $scope.title = 'Четвертый шаг анкеты';
     $scope.stepName = '4. Выберите любимого котика';
     $scope.nextPage = '/result';
-    $scope.page4 = false;
-    //$scope.currentPage = 4;
     $scope.prevPage = '/step-3';
 
     initPagination($scope.page1, $scope.page2, $scope.page3, $scope.page4, 4);
     setState($scope.page4, resultBtn);
-    buttonState('none', 'flex');
-    ///setState($scope.page4);
-    nextBtn.style.display = 'none';
-    resultBtn.style.display = 'flex';
 
+    //скрывание кнопки следующей страницы и отображение кнопки результата
+    buttonState('none', 'flex');
+
+    //функция проверки выбора изображения
     this.select = (text, imageUrl, event) => {
       this.error = null;
       active(event.target);
 
-      if(text === 'cat'){
+      if (text === 'cat') {
         $scope.user.avatar = imageUrl;
         $scope.page4 = true;
-        //$scope.nextPage = '/result';
-        setState(true, resultBtn); 
+        setState(true, resultBtn);
       } else {
-        //$scope.nextPage = null;
         $scope.page4 = false;
-        setState(false, resultBtn); 
+        setState(false, resultBtn);
         this.error = 'Вы выбрали собачку. А надо котика.';
       }
     };
 
-    function active (element) {
+    //функция активирующая выбраное изображение
+    function active(element) {
       let images = element.parentNode.childNodes;
       for (let i = 0; i < images.length; i++) {
-        if(i%2 !== 0){
+        if (i % 2 !== 0) {
           images[i].style.border = 'none';
-        } 
+        }
       }
       element.style.border = '3px solid #ff9800';
     }
-    
   }
 }
 
-FourStepController.$inject = ['$rootScope'];
-export default FourStepController;
+StepFourController.$inject = ['$rootScope'];
+export default StepFourController;

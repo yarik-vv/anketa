@@ -1,11 +1,8 @@
 #pagination {
   @include flex(row, center, center);
-  //border: 1px solid black;
-  //width: 100%;
 
   a {
     @include flex(row, center, center);
-
     height: 40px;
     width: 40px;
     margin-right: 8px;
@@ -15,6 +12,7 @@
     background: white;
     box-shadow: $shadow;
   }
+
   .active {
     color: #333333;
   }
