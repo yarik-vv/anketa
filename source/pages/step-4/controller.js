@@ -26,7 +26,12 @@ class StepFourController {
       if (text === 'cat') {
         $scope.user.avatar = imageUrl;
         $scope.page4 = true;
-        setState(true, resultBtn);
+        if($scope.page1 && $scope.page2 && $scope.page3 && $scope.page4){
+          setState(true, resultBtn);
+        } else {
+          setState(false, resultBtn);
+          this.error = 'Вы не выполнили все шаги! Проверьте предыдущие шаги.';
+        }
       } else {
         $scope.page4 = false;
         setState(false, resultBtn);
